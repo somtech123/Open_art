@@ -2,13 +2,13 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_art/app/resouces/app_logger.dart';
-import 'package:open_art/ui/feature/dashboard/presentation/bloc/dashboard_event.dart';
-import 'package:open_art/ui/feature/dashboard/presentation/bloc/dashboard_state.dart';
+import 'package:open_art/ui/feature/discover/presentation/bloc/discover_event.dart';
+import 'package:open_art/ui/feature/discover/presentation/bloc/discover_state.dart';
 
 var log = getLogger('Dashboard_bloc');
 
-class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
-  DashboardBloc() : super(DashboardState(tabIndex: 0)) {
+class DiscoverBloc extends Bloc<DiscoverEvent, DiscoverState> {
+  DiscoverBloc() : super(DiscoverState(tabIndex: 0)) {
     on<SwitchDasbboardTab>((event, emit) => switchtab(event.selectedIndex));
   }
 

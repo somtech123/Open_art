@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
-import 'package:open_art/ui/feature/dashboard/presentation/dasboard.dart';
+import 'package:open_art/ui/feature/dashboard/presentation/dashboard.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});

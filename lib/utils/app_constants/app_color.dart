@@ -8,4 +8,8 @@ class AppColors {
   static const Color tabColor = Color(0xFFF0F0F0);
 
   static const Color offWhite = Color(0xFFFCFCFC);
+
+  static const Color greyScale = Color(0xFF555555);
+
+  static const Color buttonOverlay = Color(0xffE2F3FF);
 }

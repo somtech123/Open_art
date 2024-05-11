@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:open_art/ui/feature/dashboard/presentation/bloc/dashboard_bloc.dart';
-import 'package:open_art/ui/feature/dashboard/presentation/bloc/dashboard_event.dart';
-import 'package:open_art/ui/feature/dashboard/presentation/bloc/dashboard_state.dart';
-import 'package:open_art/ui/feature/dashboard/presentation/view/widget/dashboard_card.dart';
-import 'package:open_art/ui/feature/dashboard/presentation/view/widget/dashboard_tab.dart';
+import 'package:open_art/ui/feature/discover/presentation/bloc/discover_bloc.dart';
+import 'package:open_art/ui/feature/discover/presentation/bloc/discover_event.dart';
+import 'package:open_art/ui/feature/discover/presentation/bloc/discover_state.dart';
+import 'package:open_art/ui/feature/discover/presentation/view/view_art_screen.dart';
+import 'package:open_art/ui/feature/discover/presentation/view/widget/creator_card.dart';
+import 'package:open_art/ui/feature/discover/presentation/view/widget/creator_tab.dart';
 import 'package:open_art/utils/app_constants/app_color.dart';
 
-class DashboardLoadedStateView extends StatefulWidget {
-  const DashboardLoadedStateView({super.key});
+class DiscoverLoadedStateView extends StatefulWidget {
+  const DiscoverLoadedStateView({super.key});
 
   @override
-  State<DashboardLoadedStateView> createState() =>
-      _DashboardLoadedStateViewState();
+  State<DiscoverLoadedStateView> createState() =>
+      _DiscoverLoadedStateViewState();
 }
 
-class _DashboardLoadedStateViewState extends State<DashboardLoadedStateView>
+class _DiscoverLoadedStateViewState extends State<DiscoverLoadedStateView>
     with SingleTickerProviderStateMixin {
   late TabController controller;
 
@@ -28,9 +29,9 @@ class _DashboardLoadedStateViewState extends State<DashboardLoadedStateView>
 
   @override
   Widget build(BuildContext context) {
-    final DashboardBloc dashboardBloc = BlocProvider.of<DashboardBloc>(context);
-    return BlocBuilder<DashboardBloc, DashboardState>(
-      bloc: dashboardBloc,
+    final DiscoverBloc discoverBloc = BlocProvider.of<DiscoverBloc>(context);
+    return BlocBuilder<DiscoverBloc, DiscoverState>(
+      bloc: discoverBloc,
       builder: (context, state) => SafeArea(
         child: NestedScrollView(
           headerSliverBuilder: (context, innerBoxIsScrolled) {
@@ -67,7 +68,7 @@ class _DashboardLoadedStateViewState extends State<DashboardLoadedStateView>
                   delegate: _SliverAppBarDelegate(
                     TabBar(
                       onTap: (value) {
-                        dashboardBloc
+                        discoverBloc
                             .add(SwitchDasbboardTab(selectedIndex: value));
                       },
                       dividerColor: Colors.transparent,
@@ -120,13 +121,21 @@ class _DashboardLoadedStateViewState extends State<DashboardLoadedStateView>
             physics: const NeverScrollableScrollPhysics(),
             children: [
               ListView.separated(
-                itemBuilder: (context, index) => DashboardCard(),
+                itemBuilder: (context, index) => DiscoverCard(
+                  ontap: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const ViewArtScreen(),
+                  )),
+                ),
                 itemCount: 10,
                 separatorBuilder: (context, index) =>
                     Padding(padding: EdgeInsets.all(10.h)),
               ),
               ListView.separated(
-                itemBuilder: (context, index) => DashboardCard(),
+                itemBuilder: (context, index) => DiscoverCard(
+                  ontap: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const ViewArtScreen(),
+                  )),
+                ),
                 itemCount: 10,
                 separatorBuilder: (context, index) =>
                     Padding(padding: EdgeInsets.all(10.h)),

@@ -1,15 +1,8 @@
 // ignore_for_file: override_on_non_overriding_member
 
 class DashboardState {
-  int tabIndex;
-
-  DashboardState({
-    this.tabIndex = 0,
-  });
-
-  DashboardState copyWith({int? tabIndex}) =>
-      DashboardState(tabIndex: tabIndex ?? this.tabIndex);
+  DashboardState copyWith() => DashboardState();
 
   @override
-  List<Object?> get props => [tabIndex];
+  List<Object?> get props => [];
 }
