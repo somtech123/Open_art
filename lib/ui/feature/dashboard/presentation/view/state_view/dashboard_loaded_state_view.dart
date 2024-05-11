@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:open_art/ui/feature/dashboard/presentation/view/view_art_work.dart';
 import 'package:open_art/ui/feature/dashboard/presentation/view/widget/auction_card.dart';
 import 'package:open_art/ui/feature/dashboard/presentation/view/widget/collection_container.dart';
 import 'package:open_art/ui/feature/dashboard/presentation/view/widget/feature_card.dart';
@@ -101,7 +102,11 @@ class _DashboardLoadedStateViewState extends State<DashboardLoadedStateView> {
                       SizedBox(height: 5.h),
                       SecondaryButton(
                           label: 'View artWork',
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const ViewArtWork(),
+                            ));
+                          },
                           hideBorder: true)
                     ],
                   )
