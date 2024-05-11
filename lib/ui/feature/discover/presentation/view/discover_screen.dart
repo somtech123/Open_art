@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:open_art/ui/feature/discover/presentation/bloc/discover_bloc.dart';
 import 'package:open_art/ui/feature/discover/presentation/view/state_view/discover_loaded_state.dart';
+import 'package:open_art/utils/app_constants/app_color.dart';
 
 class DiscoverScreen extends StatelessWidget {
   const DiscoverScreen({super.key});
@@ -16,22 +15,31 @@ class DiscoverScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.white,
         elevation: 0,
-        leading: Padding(
-          padding: EdgeInsets.only(left: 26.w),
-          child: Transform.scale(
-            scale: 2.9,
-            child: SvgPicture.asset(
-              'assets/svgs/Logo.svg',
-            ),
-          ),
+        scrolledUnderElevation: 0,
+        centerTitle: true,
+        title: Text(
+          'Discover creator',
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+              fontWeight: FontWeight.w700,
+              fontSize: 20,
+              color: AppColors.textColor),
         ),
-        automaticallyImplyLeading: true,
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 10.w),
-            child: SvgPicture.asset('assets/svgs/Menu.svg'),
-          ),
-        ],
+        // leading: Padding(
+        //   padding: EdgeInsets.only(left: 26.w),
+        //   child: Transform.scale(
+        //     scale: 2.9,
+        //     child: SvgPicture.asset(
+        //       'assets/svgs/Logo.svg',
+        //     ),
+        //   ),
+        // ),
+        // automaticallyImplyLeading: true,
+        // actions: [
+        //   Padding(
+        //     padding: EdgeInsets.only(right: 10.w),
+        //     child: SvgPicture.asset('assets/svgs/Menu.svg'),
+        //   ),
+        // ],
       ),
       // backgroundColor: Colors.grey[100],
       body: BlocBuilder(

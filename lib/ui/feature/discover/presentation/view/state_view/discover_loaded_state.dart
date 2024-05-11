@@ -39,15 +39,6 @@ class _DiscoverLoadedStateViewState extends State<DiscoverLoadedStateView>
               SliverToBoxAdapter(
                 child: Column(
                   children: [
-                    SizedBox(height: 10.h),
-                    Text(
-                      'Discover creator',
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 20,
-                          color: AppColors.textColor),
-                    ),
-                    SizedBox(height: 10.h),
                     Text(
                       'Follow at least five creators \n to build your feed…',
                       maxLines: 2,

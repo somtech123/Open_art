@@ -8,6 +8,7 @@ import 'package:open_art/ui/feature/dashboard/presentation/view/widget/auction_c
 import 'package:open_art/ui/feature/dashboard/presentation/view/widget/collection_container.dart';
 import 'package:open_art/ui/feature/dashboard/presentation/view/widget/feature_card.dart';
 import 'package:open_art/ui/feature/dashboard/presentation/view/widget/hot_bid_card.dart';
+import 'package:open_art/ui/feature/discover/presentation/discover.dart';
 import 'package:open_art/ui/shared/primary_button.dart';
 import 'package:open_art/utils/app_constants/app_color.dart';
 
@@ -360,7 +361,13 @@ class _DashboardLoadedStateViewState extends State<DashboardLoadedStateView> {
                 PrimaryButton(label: 'Earn now', onPressed: () {}),
                 SizedBox(height: 10.h),
 
-                SecondaryButton(label: 'Discover More', onPressed: () {}),
+                SecondaryButton(
+                    label: 'Discover More',
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => DiscoverScreen(),
+                      ));
+                    }),
 
                 SizedBox(height: 40.h)
               ],
